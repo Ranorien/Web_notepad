@@ -1,14 +1,17 @@
 {% load bootstrap4 %}
+{% load static %}
 
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
     <title>Web notepad</title>
 
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
