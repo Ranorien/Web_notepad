@@ -27,10 +27,5 @@ urlpatterns = [
     # page for editing notes
     path('edit_note/<int:note_id>/', views.edit_note, name='edit_note'),
 
-    # # favicon path
-    # path(
-    #     "favicon.ico",
-    #     RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
-    # )
 ]
 
