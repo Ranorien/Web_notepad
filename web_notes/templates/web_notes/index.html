@@ -1,0 +1,27 @@
+{% extends 'web_notes/base.html' %}
+
+{% block page_header %}
+    {% if user.is_authenticated %}
+        <div class="jumbotron">
+            <h1 class="display-3">Welcome, {{ user.username|title }}</h1>
+            <p class="lead">This is simple web notepad. You can save your notes and access them any time from different devices and from different places of the world</p>
+            <hr class="my-2">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'web_notes:topics' %}" role="button">Write notes &raquo;</a>
+            </p>
+        </div>
+    {% else %}
+        <div class="jumbotron">
+            <h1 class="display-3">Write your notes anytime and anywhere</h1>
+            <p class="lead">This is simple web notepad. You can save your notes and access them any time from different devices and from different places of the world</p>
+            <hr class="my-2">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+            </p>
+        </div>
+    {% endif %}
+{% endblock page_header %}
+
+{% block content %} 
+
+{% endblock content %}

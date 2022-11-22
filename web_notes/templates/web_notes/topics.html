@@ -1,0 +1,18 @@
+{% extends 'web_notes/base.html' %}
+
+{% block page_header %} 
+    <a href="{% url 'web_notes:new_topic' %}" class="btn btn-secondary">Add new topic</a> 
+{% endblock page_header %}
+    
+{% block content %}
+
+    {% for topic in topics %}
+        <div class="list-group">
+            <a href="{% url 'web_notes:topic' topic.id %}" class="list-group-item list-group-item-action">{{ topic }}</a>
+        </div>
+    {% empty %}
+        <h3>No topics have been added yet</h3>
+    {% endfor %}
+    
+{% endblock content %}
+

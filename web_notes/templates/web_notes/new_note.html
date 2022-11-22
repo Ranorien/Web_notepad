@@ -1,0 +1,19 @@
+{% extends 'web_notes/base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %} 
+    <h2>Add new note to topic: <a href="{% url 'web_notes:topic' topic.id %}">{{ topic }}</a> </h2>
+{% endblock page_header %}
+
+
+{% block content %}
+    <form action="{% url 'web_notes:new_note' topic.id %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Add note</button>
+        {% endbuttons %}
+    </form>
+
+{% endblock content %}

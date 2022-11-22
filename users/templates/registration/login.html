@@ -1,0 +1,32 @@
+{% extends 'web_notes/base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %} 
+    <h2>Log in to your account</h2>
+{% endblock page_header %} 
+
+ 
+{% block content %}
+    <form action="{% url 'users:login' %}" method="post" class="form">
+        {% csrf_token %}
+
+
+        {% comment %} it's possible to just write {% bootstrap_form form '%} 
+        but in case of wrong user or possword django returns error but input fields sets green 
+        1. to normal fix it requires to create custom login process with returning errors related to fields, but not to the form at all 
+        2. or render form manually for each field and errors
+        3. or simple fix like as below {% endcomment %}
+        {% if form.errors %}
+            {% bootstrap_form form bound_css_class='is-invalid'%}
+        {% else %}
+            {% bootstrap_form form bound_css_class='is-valid'%}
+        {% endif %}
+        
+
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Log in</button>
+        {% endbuttons %}
+
+        <input type="hidden" name="next" value="{% url 'web_notes:topics' %}" />
+    </form>
+{% endblock content %}

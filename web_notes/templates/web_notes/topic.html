@@ -1,0 +1,30 @@
+{% extends 'web_notes/base.html' %}
+
+{% block page_header %}
+    <div class="row">
+        <div class="col-md-auto">
+            <a href="{% url 'web_notes:new_note' topic.id %}" class="btn btn-secondary">New note</a>
+        </div>
+        <div class="col-md-auto">
+            <h2>{{ topic }}</h2> 
+        </div>
+    </div>
+{% endblock page_header %} 
+
+
+{% block content %}
+    {% for note in notes %}
+        <div class="card mb-3">
+            <div class="card-header">
+                {{ note.date_added|date:'M d, Y H:i' }}
+                <a href="{% url 'web_notes:edit_note' note.id %}">edit</a> 
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ note.text|linebreaks}}</p>
+            </div>
+        </div>
+    {% empty %}
+        <h2>There are no entries for this topic yet</h2>
+    {% endfor %}
+
+{% endblock content %}
