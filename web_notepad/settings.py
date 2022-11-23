@@ -58,7 +58,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #for work with statis files with DEBUG=FALSE, it also requires to run python manage.py collect static
+    # for work with statis files with DEBUG=FALSE, it also requires to run python manage.py collect static
+    # https://whitenoise.evans.io/en/latest/
     'whitenoise.middleware.WhiteNoiseMiddleware',           
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +74,7 @@ ROOT_URLCONF = 'web_notepad.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'web_notepad/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
