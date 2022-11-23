@@ -58,6 +58,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    #for work with statis files with DEBUG=FALSE, it also requires to run python manage.py collect static
+    'whitenoise.middleware.WhiteNoiseMiddleware',           
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
