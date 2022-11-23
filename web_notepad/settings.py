@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # VENV variables loading from the file .env
 import environ
@@ -27,11 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-if env('DEBUG') == 'FALSE':
+if os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
 else:
     DEBUG = True
